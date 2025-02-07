@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jcastropizzo/Haven-challenge/compare/v1.0.0...v1.1.0) (2025-02-07)
+
+
+### Features
+
+* hitting gutenberg and retrieving metadata ([3a25de2](https://github.com/jcastropizzo/Haven-challenge/commit/3a25de24aca016c1ddb9dc29089ec8739d0283f8))
+
 # 1.0.0 (2025-02-07)
 
 
