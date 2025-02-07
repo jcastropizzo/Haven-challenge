@@ -14,13 +14,11 @@ export const BookSearcher: React.FC<BookSearcherProps> = ({ currentBookId }) => 
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSearch = async () => {
-    // just for the sake of type narrowing in TS
-    const localBookId = bookId;
-    if (localBookId == null) {
+    if (bookId == null) {
       return;
     }
     setLoading(true);
-    router.push(`/book-search/${localBookId}`);
+    router.push(`/book-search/${bookId}`);
   };
 
   return (
