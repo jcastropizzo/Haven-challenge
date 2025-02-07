@@ -1,3 +1,10 @@
+# 1.0.0 (2025-02-07)
+
+
+### Bug Fixes
+
+* remove useless variable ([41ad21b](https://github.com/jcastropizzo/Haven-challenge/commit/41ad21bbd1e7cca33b3e2e597e7f6c8a391e3a0b))
+
 # [3.61.0](https://github.com/ixartz/Next-js-Boilerplate/compare/v3.60.5...v3.61.0) (2025-01-24)
 
 
