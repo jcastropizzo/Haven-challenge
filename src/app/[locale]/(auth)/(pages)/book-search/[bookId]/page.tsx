@@ -1,7 +1,8 @@
+import { BookDisplayer } from '@/components/BookDisplayer';
 import { BookSearcher } from '@/components/BookSearcher';
 import { logger } from '@/libs/Logger';
 
-export default async function BookSearch({
+export default async function BookDisplay({
   params,
 }: { params: Promise<{ bookId: string | undefined }> }) {
   const { bookId } = await params;
@@ -16,8 +17,15 @@ export default async function BookSearch({
   }
 
   return (
-    <BookSearcher
-      currentBookId={validatedBookId}
-    />
+    <>
+
+      <BookSearcher
+        currentBookId={validatedBookId}
+      />
+
+      <BookDisplayer
+        currentBookId={validatedBookId}
+      />
+    </>
   );
 }
