@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jcastropizzo/Haven-challenge/compare/v1.1.0...v1.2.0) (2025-02-09)
+
+
+### Features
+
+* history ([007b355](https://github.com/jcastropizzo/Haven-challenge/commit/007b355d4d15ab23c3369e942ae3a37f6b288f0e))
+
 # [1.1.0](https://github.com/jcastropizzo/Haven-challenge/compare/v1.0.0...v1.1.0) (2025-02-07)
 
 
