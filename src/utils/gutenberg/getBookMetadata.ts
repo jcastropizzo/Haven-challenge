@@ -5,10 +5,10 @@ import { saveMetadata } from '../bookMetadata/saveBookMetadata';
 import { parseMetadataPageText } from './parseMetadataPageText';
 
 export const getBookMetadata = async (bookId: string) => {
-  const [savedMetadata] = await db
-    .select()
-    .from(bookMetadata)
-    .where(eq(bookMetadata.bookId, bookId));
+  const savedMetadata = await db.query.bookMetadata
+    .findFirst({
+      where: eq(bookMetadata.bookId, bookId),
+    });
 
   if (!savedMetadata) {
     const bookFetchRequest
