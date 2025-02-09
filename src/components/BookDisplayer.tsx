@@ -16,11 +16,11 @@ export const BookDisplayer: React.FC<BookDisplayProps> = async ({ bookMetadata }
             const content = bookMetadata[key];
             assertNonNullable(content);
             return (
-              <div key={`metadata-list-${key}`} className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <div key={`metadata-list-${key}`} className="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-2 sm:px-0">
                 <dt className="text-sm/6 font-medium text-gray-900">{key}</dt>
                 <dd className="sm:col-span-2 sm:mt-0">
                   {content.map(value => (
-                    <p className="text-sm/6 text-gray-500" key={value}>{value}</p>
+                    <p className="text-sm/5 text-gray-500 mt-0" key={value}>{value}</p>
                   ))}
                 </dd>
               </div>

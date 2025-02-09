@@ -7,10 +7,6 @@
     "sign_in_link": "Se connecter",
     "sign_up_link": "S'inscrire"
   },
-  "BaseTemplate": {
-    "description": "Code de démarrage pour Next.js avec Tailwind CSS",
-    "made_with": "Fait avec <author></author>."
-  },
   "Index": {
     "meta_title": "Présentation de Next.js Boilerplate",
     "meta_description": "Next js Boilerplate est le code de démarrage parfait pour votre projet. Construisez votre application React avec le framework Next.js.",

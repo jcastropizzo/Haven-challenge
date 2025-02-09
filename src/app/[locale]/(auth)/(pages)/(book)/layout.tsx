@@ -1,4 +1,3 @@
-import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 import { BaseTemplate } from '@/templates/BaseTemplate';
 import { SignOutButton } from '@clerk/nextjs';
 import Link from 'next/link';
@@ -12,10 +11,18 @@ export default async function BookSearchLayout(props: {
         <>
           <li>
             <Link
-              href="/dashboard/"
+              href="/book-search/"
               className="border-none text-gray-700 hover:text-gray-900"
             >
-              Dashboard
+              Book Search
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/book-search-history/"
+              className="border-none text-gray-700 hover:text-gray-900"
+            >
+              Book Search History
             </Link>
           </li>
           <li>
@@ -23,7 +30,7 @@ export default async function BookSearchLayout(props: {
               href="/dashboard/user-profile/"
               className="border-none text-gray-700 hover:text-gray-900"
             >
-              Manage your account
+              User Profile
             </Link>
           </li>
         </>
@@ -36,10 +43,6 @@ export default async function BookSearchLayout(props: {
                 Sign out
               </button>
             </SignOutButton>
-          </li>
-
-          <li>
-            <LocaleSwitcher />
           </li>
         </>
       )}

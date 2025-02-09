@@ -1,5 +1,4 @@
 import { DemoBanner } from '@/components/DemoBanner';
-import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 import { BaseTemplate } from '@/templates/BaseTemplate';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
@@ -81,10 +80,6 @@ export default async function Layout(props: {
               >
                 {t('sign_up_link')}
               </Link>
-            </li>
-
-            <li>
-              <LocaleSwitcher />
             </li>
           </>
         )}

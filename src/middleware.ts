@@ -10,6 +10,8 @@ const isProtectedRoute = createRouteMatcher([
   '/:locale/dashboard(.*)',
   '/book-search(.*)',
   '/:locale/book-search(.*)',
+  '/book-search-history(.*)',
+  '/:locale/book-searc-history(.*)',
 ]);
 
 const isAuthPage = createRouteMatcher([
