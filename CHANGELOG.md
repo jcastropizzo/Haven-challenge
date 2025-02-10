@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/jcastropizzo/Haven-challenge/compare/v1.3.0...v1.3.1) (2025-02-10)
+
+
+### Bug Fixes
+
+* image ([0a5825c](https://github.com/jcastropizzo/Haven-challenge/commit/0a5825cf2941df1d9c882f64589d24075e7f3841))
+
 # [1.3.0](https://github.com/jcastropizzo/Haven-challenge/compare/v1.2.0...v1.3.0) (2025-02-10)
 
 
