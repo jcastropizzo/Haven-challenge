@@ -12,14 +12,27 @@ const bundleAnalyzer = withBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 export default withSentryConfig(
   bundleAnalyzer(
-    withNextIntl({
-      eslint: {
-        dirs: ['.'],
+    {
+      images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'www.gutenberg.org',
+            port: '',
+            pathname: '/cache/epub/*/pg*.cover.medium.jpg',
+            search: '',
+          },
+        ],
       },
-      poweredByHeader: false,
-      reactStrictMode: true,
-      serverExternalPackages: ['@electric-sql/pglite'],
-    }),
+      ...withNextIntl({
+        eslint: {
+          dirs: ['.'],
+        },
+        poweredByHeader: false,
+        reactStrictMode: true,
+        serverExternalPackages: ['@electric-sql/pglite'],
+      }),
+    },
   ),
   {
     // For all available options, see:
@@ -62,5 +75,6 @@ export default withSentryConfig(
 
     // Disable Sentry telemetry
     telemetry: false,
+
   },
 );
