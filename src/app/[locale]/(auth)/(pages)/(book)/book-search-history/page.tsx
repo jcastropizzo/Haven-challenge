@@ -1,4 +1,4 @@
-import { Hello } from '@/components/Hello';
+import { BookSearchHistoryTable } from '@/components/BookSearchHistoryTable';
 import { logger } from '@/libs/Logger';
 import { assertNonNullable } from '@/utils/assertions/assertNonNullable';
 import { getHistory } from '@/utils/history/getHistory';
@@ -11,9 +11,9 @@ const BookSearchHistory = async () => {
   const history = await getHistory(user);
   logger.info(history);
   return (
-    <>
-      <Hello />
-    </>
+    <BookSearchHistoryTable
+      history={history}
+    />
   );
 };
 

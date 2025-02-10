@@ -20,7 +20,7 @@ export const counterSchema = pgTable('counter', {
   createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
 });
 
-export const bookMetadata = pgTable('book_metadata', {
+export const bookMetadataSchema = pgTable('book_metadata', {
   bookId: text('book_id').primaryKey().unique().notNull(),
   metadata: json('book_metadata').$type<Record<string, string[]>>().notNull(),
   updatedAt: timestamp('updated_at', { mode: 'date' })
@@ -30,7 +30,7 @@ export const bookMetadata = pgTable('book_metadata', {
   createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
 });
 
-export const history = pgTable('history', {
+export const historySchema = pgTable('history', {
   userId: text('user_id').notNull(),
   bookId: text('book_id').notNull(),
   bookName: text('book_name').notNull(),

@@ -1,13 +1,13 @@
 import { db } from '@/libs/DB';
-import { bookMetadata } from '@/models/Schema';
+import { bookMetadataSchema } from '@/models/Schema';
 import { eq } from 'drizzle-orm';
 import { saveMetadata } from '../bookMetadata/saveBookMetadata';
 import { parseMetadataPageText } from './parseMetadataPageText';
 
 export const getBookMetadata = async (bookId: string) => {
-  const savedMetadata = await db.query.bookMetadata
+  const savedMetadata = await db.query.bookMetadataSchema
     .findFirst({
-      where: eq(bookMetadata.bookId, bookId),
+      where: eq(bookMetadataSchema.bookId, bookId),
     });
 
   if (!savedMetadata) {

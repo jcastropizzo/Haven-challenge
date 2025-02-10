@@ -1,10 +1,12 @@
 import { db } from '@/libs/DB';
-import { bookMetadata } from '@/models/Schema';
+import {
+  bookMetadataSchema,
+} from '@/models/Schema';
 import { assertNonNullable } from '../assertions/assertNonNullable';
 
 export const saveMetadata = async (bookId: string, metadata: Record<string, string[]>) => {
   const [result] = await db
-    .insert(bookMetadata)
+    .insert(bookMetadataSchema)
     .values({ bookId, metadata })
     .returning();
   assertNonNullable(result);
