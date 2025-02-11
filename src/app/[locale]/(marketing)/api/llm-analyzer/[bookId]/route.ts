@@ -25,9 +25,9 @@ export const GET = async ( request: NextRequest,
   }
 
   // TODO: explore stream text to AI analysis
-  const aiInput = getAIInput(analysisType,text);
+  const aiInput = getAIInput(analysisType);
 
-  const aiOutput = await getAIAnalysis(aiInput);
+  const aiOutput = await getAIAnalysis(aiInput, text);
 
   return NextResponse.json({
     aiOutput,
