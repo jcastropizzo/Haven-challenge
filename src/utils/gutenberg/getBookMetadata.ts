@@ -3,8 +3,15 @@ import { bookMetadataSchema } from '@/models/Schema';
 import { eq } from 'drizzle-orm';
 import { saveMetadata } from '../bookMetadata/saveBookMetadata';
 import { parseMetadataPageText } from './parseMetadataPageText';
+import { logger } from '@/libs/Logger';
 
-export const getBookMetadata = async (bookId: string) => {
+export const getBookMetadata = async (bookId: string): Promise<{
+  bookId: string;
+  metadata: Record<string, string[]>;
+  updatedAt: Date;
+  createdAt: Date;
+} | undefined> => {
+
   const savedMetadata = await db.query.bookMetadataSchema
     .findFirst({
       where: eq(bookMetadataSchema.bookId, bookId),
@@ -19,11 +26,15 @@ export const getBookMetadata = async (bookId: string) => {
         },
       });
 
+    if (bookFetchRequest.status !== 200) {
+      logger.error('Book not found', bookId);
+      return undefined;
+    }
     const data = await bookFetchRequest.text();
 
     const metadata = parseMetadataPageText(data);
     if (metadata === undefined) {
-      throw new Error('Error parsing metadata');
+      return undefined;
     }
 
     const result = await saveMetadata(bookId, metadata);

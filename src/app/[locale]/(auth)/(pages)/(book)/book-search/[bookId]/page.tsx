@@ -1,3 +1,4 @@
+import { AIAnalyzer } from '@/components/AIAnalyzer';
 import { BookDisplayer } from '@/components/BookDisplayer';
 import { BookSearcher } from '@/components/BookSearcher';
 import { logger } from '@/libs/Logger';
@@ -24,6 +25,9 @@ export default async function BookDisplay({
   let bookMetadata: Awaited<ReturnType<typeof getBookMetadata>>;
   try {
     bookMetadata = await getBookMetadata(validatedBookId);
+    if(bookMetadata === undefined) {
+      return (<>No book found with this id!</>);
+    }
   } catch (error) {
     logger.error('BookDisplay couldn\'t get book metadata', error);
     return (<>Please contact support! </>);
@@ -45,6 +49,9 @@ export default async function BookDisplay({
       <BookDisplayer
         bookMetadata={bookMetadata.metadata}
       />
+      <AIAnalyzer
+        currentBookId={validatedBookId}
+        />
     </>
   );
 }

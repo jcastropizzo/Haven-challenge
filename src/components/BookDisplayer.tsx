@@ -1,17 +1,27 @@
+'use client';
+
 import { assertNonNullable } from '@/utils/assertions/assertNonNullable';
+import { useState } from 'react';
 
 type BookDisplayProps = {
   bookMetadata: Record<string, string[]>;
 };
 
-export const BookDisplayer: React.FC<BookDisplayProps> = async ({ bookMetadata }: BookDisplayProps) => {
+export const BookDisplayer: React.FC<BookDisplayProps> = ({ bookMetadata }: BookDisplayProps) => {
+
+  const [hidden, setHidden] = useState(false);
+
   return (
     <div className="py-5 [&_p]:my-6">
       <div className="px-4 sm:px-0">
-        <h3 className="text-base/7 font-semibold text-gray-900">Information provided by Gutenberg!</h3>
+        <h3 className="text-base/7 font-semibold text-gray-900">Information provided by Gutenberg!{" "}
+          <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-900 hover:cursor-pointer"
+            onClick={() => setHidden(!hidden)}
+          >{hidden ? "Hide metadata" : "Show metadata"}</span>
+        </h3>
       </div>
       <div className="mt-6 border-t border-gray-100">
-        <dl className="divide-y divide-gray-100">
+        {hidden ? <dl className="divide-y divide-gray-100">
           {Object.keys(bookMetadata).map((key) => {
             const content = bookMetadata[key];
             assertNonNullable(content);
@@ -26,7 +36,7 @@ export const BookDisplayer: React.FC<BookDisplayProps> = async ({ bookMetadata }
               </div>
             );
           })}
-        </dl>
+        </dl> : <div />}
       </div>
     </div>
   );
